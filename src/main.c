@@ -1,7 +1,7 @@
 #include "main.h"
-#include <stdint.h>
+
 #define SDC_IMPLEMENTATION
-#include "../../sdc/sdc.h"
+#include "sdc.h"
 
 #define BOARD_SZ 3
 
