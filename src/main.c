@@ -71,20 +71,7 @@ void Board_init(void) {
 }
 
 int Player_move(void) {
-    int i, j, k = 1;
     char *input_buffer;
-
-    printf("Available moves:\n");
-    for (i = 0; i < BOARD_SZ; i++) {
-        for (j = 0; j < BOARD_SZ; j++) {
-            if (board[i][j].is == NONE)
-                printf("%-3d", k);
-            else
-                printf("%-3s", ".");
-            k++;
-        }
-        printf("\n");
-    }
     SDC_io_prompt(&input_buffer, "Pick your next move!");
     return atoi(input_buffer);
 }
@@ -107,7 +94,7 @@ void execute_move(int move, Party p) {
 }
 
 void Board_print(void) {
-    int i, j;
+    int i, j, k = 1;
     printf("Current board:\n");
     for (i = 0; i < BOARD_SZ; i++) {
         for (j = 0; j < BOARD_SZ; j++) {
@@ -119,9 +106,11 @@ void Board_print(void) {
                     printf("%-3s", "o");
                     break;
                 default:
-                    printf("%-3s", "`");
+                    printf("\033[38;5;236m%-3d\033[0m", k);
+
                     break;
             }
+            k++;
         }
         printf("\n");
     }
