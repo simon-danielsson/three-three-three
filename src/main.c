@@ -110,7 +110,7 @@ int Bot_move(void) {
 
 int Player_move(void) {
     char *input_buffer;
-    SDC_io_prompt(&input_buffer, "Pick your next move!");
+    SDC_io_prompt(&input_buffer, NULL);
     return atoi(input_buffer);
 }
 
@@ -131,7 +131,6 @@ void execute_move(int move, Party p, BoardCell b[BOARD_SZ][BOARD_SZ]) {
 
 void Board_print(BoardCell b[BOARD_SZ][BOARD_SZ]) {
     int i, j, k = 1;
-    printf("Current board:\n");
     for (i = 0; i < BOARD_SZ; i++) {
         for (j = 0; j < BOARD_SZ; j++) {
             switch (b[i][j].is) {
