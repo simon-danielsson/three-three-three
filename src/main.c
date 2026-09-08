@@ -175,9 +175,8 @@ WinState check_win_state(BoardCell b[BOARD_SZ][BOARD_SZ]) {
     int bot_matches;
     int board_full = 1;
 
-    for (win_cond = 0; win_cond < 8; win_cond++) {
-        player_matches = 0;
-        bot_matches = 0;
+    for (player_matches = 0, bot_matches = 0, win_cond = 0; win_cond < 8;
+            win_cond++) {
 
         for (i = 0; i < BOARD_SZ; i++) {
             for (j = 0; j < BOARD_SZ; j++) {
